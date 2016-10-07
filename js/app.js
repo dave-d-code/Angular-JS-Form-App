@@ -1,7 +1,20 @@
-var myApp = angular.module('myApp', []); // needs the routes here etc
+var myApp = angular.module('myApp', ['ngRoute']); // needs the routes here etc
 
-// typical controller set up. This can be a module in a separate file.
-
-myApp.controller('appController', ['$scope', function($scope) {
-	$scope.message="Welcome to my app";
+myApp.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.
+		when('/login', {
+			templateUrl: 'views/login.html',
+			controller: 'RegistrationController'
+		}).
+		when('/register', {
+			templateUrl: 'views/register.html',
+			controller: 'RegistrationController'
+		}).
+		when('/success', {
+			templateUrl: 'views/success.html',
+			controller: 'SuccessController'
+		}).
+		otherwise({
+			redirectTo: '/login'
+		});
 }]);

@@ -17,8 +17,9 @@
 <body>
 <header></header>
 
-<!-- this part to be under ng appController -->
-<div class="page" ng-controller="appController">
+<!-- ng view saves you specifiying which controller on the main html page -->
+<!-- controller & view now sent from app.js -->
+<div class="page" ng-view>
 <!-- main output to go here -->
  <main class="cf">
  	{{ message }}
